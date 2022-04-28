@@ -6,7 +6,7 @@ double* Memory(double*ptr,int size) {
 	ptr = new double[size];
 	return ptr;
 }
-void Print_f(double* ptr, int size) {
+void print_f(double* ptr, int size) {
 	for (int i = 0; i < size; i++)
 	{
 		cout << ptr[i]<<" ";
@@ -19,14 +19,13 @@ void Print_f(double* ptr, int size) {
 			x[i] = rand() % 10 + 1;
 		}
       }
-	double* freeMemory(double* ptrArr)
+	void freeMemory(double* ptrArr)
 	{
 		delete[] ptrArr;
-		ptrArr = 0;
-
-		return ptrArr;
 	}
 int main() {
+	setlocale(LC_ALL, "");
+	
 	double* ps = 0;
 	char decision = 0;
 
@@ -38,8 +37,8 @@ int main() {
 
 		ps = Memory(ps, size);
 		InMasR(ps, size);
-		printf(ps, size);
-		ps = freeMemory(ps);
+		print_f(ps, size);
+		freeMemory(ps);
 
 		cout << "\nПродолжить (1). Выйти (0): ";
 		cin >> decision;
